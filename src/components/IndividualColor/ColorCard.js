@@ -8,7 +8,9 @@ import CodesSection from "./CodesSection";
 const DeleteButton = ({ id }) => {
   const [delColor] = useMutation(DELETE_COLOR);
 
-  const deleteColor = () => {
+  const deleteColor = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     delColor({
       variables: {
         id

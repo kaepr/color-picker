@@ -8,27 +8,7 @@ import CardArea from "./components/CardArea";
 const ADMIN_SECRET =
   "hiGVKfA41tKKiAm65rOmxpDge0XsAvLRj6TOjM923yUXfL5rf1QvdpQIG7HNgwC0";
 
-// const createApolloClient = () => {
-//   return new ApolloClient({
-//     link: new WebSocketLink({
-//       uri: "wss://upward-shad-46.hasura.app/v1/graphql",
-//       options: {
-//         reconnect: true,
-//         lazy: true,
-//         connectionParams: {
-//           headers: {
-//             "content-type": "application/json",
-//             "x-hasura-admin-secret": ADMIN_SECRET
-//           }
-//         }
-//       }
-//     }),
-//     cache
-//   });
-// };
-
 function App() {
-  // const client = createApolloClient();
   const [client, setClient] = useState();
 
   useEffect(() => {
@@ -53,13 +33,15 @@ function App() {
               }
             }
           }),
-          cache
+          cache,
+          connectToDevTools: true
         })
       );
     }
 
     init().catch(console.error);
     console.log(client);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!client) {
