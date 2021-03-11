@@ -2,7 +2,8 @@ import { gql } from "@apollo/client";
 
 export const GET_ALL_COLORS = gql`
   subscription MySubscription {
-    color_palettes {
+    color_palettes(order_by: { created_at: asc }) {
+      created_at
       hex_code
       id
       label_name

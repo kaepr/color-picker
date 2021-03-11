@@ -38,8 +38,8 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div className="bg-gray-50 h-screen absolute w-full">
-        <div className="mt-10 mr-20 ml-20 mb-10">
+      <div className="bg-gray-700 min-h-screen absolute w-full">
+        <div className="p-8 rounded-md">
           <CardArea />
         </div>
       </div>

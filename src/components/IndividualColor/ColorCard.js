@@ -21,7 +21,7 @@ const DeleteButton = ({ id }) => {
       onClick={deleteColor}
       className="cursor-pointer bg-red-600 rounded-md h-6 w-14 flex items-center justify-center border-black transition hover:shadow-xl"
     >
-      <div className="text-xs text-white font-bold ">DELETE</div>
+      <div className="text-xs text-white font-black">DELETE</div>
     </div>
   );
 };
@@ -34,18 +34,14 @@ const ColorCard = ({ props }) => {
     backgroundColor: hex_code
   };
 
-  const toggleButton = () => {
-    setShowDelete(!showDelete);
-  };
-
   return (
-    <div className="text-base font-normal border-black p-2 m-2 border-2 rounded-md border-opacity-20 max-w-min">
-      <LabelName name={label_name} />
+    <div className="relative text-base font-normal border-black p-2 m-2 border-2 rounded-md border-opacity-20 w-56">
+      <LabelName name={label_name} id={id} />
       <div
-        className="relative h-28 w-52"
+        className="relative h-28 w-full object-scale-down"
         style={styles}
-        onMouseEnter={toggleButton}
-        onMouseLeave={toggleButton}
+        onMouseEnter={() => setShowDelete(true)}
+        onMouseLeave={() => setShowDelete(false)}
       >
         {showDelete && (
           <div className="absolute top-20 left-36 ">

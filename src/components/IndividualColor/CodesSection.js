@@ -1,10 +1,10 @@
 const CodesSection = ({ hexCode, rgbCode }) => {
-  console.log("code = ", hexCode, rgbCode);
+  // console.log("code = ", hexCode, rgbCode);
 
   return (
-    <div>
+    <div className="m-1 p-1">
       <div>HEX = {hexCode}</div>
-      <divs>RGB = {rgbCode}</divs>
+      <div>RGB = {rgbCode}</div>
     </div>
   );
 };
