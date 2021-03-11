@@ -40,7 +40,7 @@ function App() {
     }
 
     init().catch(console.error);
-    console.log(client);
+    // console.log(client);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -14,7 +14,7 @@ function CardArea() {
   let color_cards;
 
   if (data) {
-    console.log("data = ", data);
+    // console.log("data = ", data);
     color_cards = data.color_palettes.map((c) => (
       <ColorCard key={c.id} props={c} />
     ));
