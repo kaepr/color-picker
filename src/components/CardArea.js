@@ -2,7 +2,7 @@ import { useSubscription } from "@apollo/client";
 
 import { GET_ALL_COLORS } from "../gql/queries";
 import AddColor from "./AddColor";
-import ColorCard from "./ColorCard";
+import ColorCard from "./IndividualColor/ColorCard";
 
 function CardArea() {
   const { loading, error, data } = useSubscription(GET_ALL_COLORS);

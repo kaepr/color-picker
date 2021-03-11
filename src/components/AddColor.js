@@ -9,7 +9,7 @@ function AddColor() {
     console.log("button works");
     const hex_code = hexGenerator();
     const rgb_code = hexToRGB(hex_code);
-    const label_name = "Default Value";
+    const label_name = "Default Name";
     addColorCard({
       variables: {
         hex_code,
@@ -22,7 +22,7 @@ function AddColor() {
   return (
     <div
       onClick={addColor}
-      className="cursor-pointer bg-gray-200 h-28 w-52 flex items-center justify-center transition ease-in-out hover:bg-gray-300"
+      className="p-2 m-4 cursor-pointer h-28 w-52 flex items-center justify-center transition duration-500 ease-in-out hover:bg-gray-200"
     >
       <div className="">
         <svg

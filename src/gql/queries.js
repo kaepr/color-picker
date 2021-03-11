@@ -30,24 +30,30 @@ export const ADD_COLOR = gql`
   }
 `;
 
-export const UPDATE_LABEL = `
-mutation ($id: uuid!, $label_name: String!) {
-  update_color_palettes(where: {id: {_eq: $id}}, _set:{label_name: $label_name}) {
-    returning {
-      id
-      label_name
-      rgb_code
-      hex_code
+export const UPDATE_LABEL = gql`
+  mutation($id: uuid!, $label_name: String!) {
+    update_color_palettes(
+      where: { id: { _eq: $id } }
+      _set: { label_name: $label_name }
+    ) {
+      returning {
+        id
+        label_name
+        rgb_code
+        hex_code
+      }
     }
   }
-}
 `;
 
-export const DELETE_COLOR = `mutation ($id: uuid!) {
-  delete_color_palettes(where: {id: {_eq: $id}}){
-    affected_rows
+export const DELETE_COLOR = gql`
+  mutation($id: uuid!) {
+    delete_color_palettes(where: { id: { _eq: $id } }) {
+      returning {
+        id
+      }
+    }
   }
-}
 `;
 
 export const GET_ALL_COLORS_QUERY = gql`
