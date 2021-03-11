@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSubscription } from "@apollo/client";
 
 import { GET_ALL_COLORS } from "../gql/queries";
@@ -24,8 +23,8 @@ function CardArea() {
   return (
     <div className="rounded-lg bg-gray-100 relative font-semibold text-6xl p-4 min-h-screen">
       <div className="flex items-center justify-center">
-        <div className="flex flex-col justify-center align-center">
-          <div className="p-4">Color Picker</div>
+        <div className="flex flex-col justify-center align-center mx-auto">
+          <div className="mx-auto p-4">Color Picker</div>
           {loading && <div>Loading ...</div>}
           <div className="mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-4 ">
             {color_cards}

@@ -3,8 +3,8 @@ const CodesSection = ({ hexCode, rgbCode }) => {
 
   return (
     <div className="m-1 p-1">
-      <div>HEX = {hexCode}</div>
-      <div>RGB = {rgbCode}</div>
+      <div alt="Click to copy to Clipboard">HEX {hexCode}</div>
+      <div>RGB {rgbCode}</div>
     </div>
   );
 };
