@@ -1,54 +1,48 @@
 import { useState, useEffect } from "react";
 import { hexToRGB, hexGenerator } from "../utils/colorGenerator";
 
-const DeleteButton = () => {
+const DeleteButton = ({ id }) => {
   return (
-    <div className="cursor-pointer bg-red-600 rounded-md h-6 w-14 flex items-center justify-center border-black hover:shadow-xl motion-reduce:animate-bounce">
+    <div className="cursor-pointer bg-red-600 rounded-md h-6 w-14 flex items-center justify-center border-black transition hover:shadow-xl">
       <div className="text-xs text-white font-bold ">DELETE</div>
     </div>
   );
 };
 
-const ColorLabel = () => {
+const ColorLabel = ({ name }) => {
+  console.log("label = ", name);
   const [colorLabel, setColorLabel] = useState("Primary");
-  return <div className="font-light p-1 cursor-text ">Color Label</div>;
+  return <div className="font-light p-1 cursor-text ">{name}</div>;
 };
 
-const ColorCode = () => {
+const ColorCode = ({ hexCode, rgbCode }) => {
+  console.log("code = ", hexCode, rgbCode);
+
   return (
     <div>
-      <div>
-        <span>HEX = 123456</span>
-      </div>
-      <div>
-        <span>RGB = 123456</span>
-      </div>
+      <div>HEX = {hexCode}</div>
+
+      <divs>RGB = {rgbCode}</divs>
     </div>
   );
 };
 
-const ColorCard = () => {
+const ColorCard = ({ props }) => {
+  console.log("props = ", props);
+  const { hex_code, id, label_name, rgb_code } = props;
   const [showDelete, setShowDelete] = useState(false);
 
-  const hexCode = hexGenerator();
-  console.log(hexCode);
-  console.log(hexToRGB(hexCode));
-
   let styles = {
-    backgroundColor: hexCode
+    backgroundColor: props.hex_code
   };
 
   const toggleButton = () => {
     setShowDelete(!showDelete);
   };
 
-  // useEffect(() => {
-  //   toggleButton();
-  // }, []);
-
   return (
     <div className="text-base font-normal">
-      <ColorLabel />
+      <ColorLabel name={label_name} />
       <div
         className="relative h-28 w-52"
         style={styles}
@@ -61,7 +55,7 @@ const ColorCard = () => {
           </div>
         )}
       </div>
-      <ColorCode />
+      <ColorCode hexCode={hex_code} rgbCode={rgb_code} />
     </div>
   );
 };

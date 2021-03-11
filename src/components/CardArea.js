@@ -6,10 +6,15 @@ import ColorCard from "./ColorCard";
 
 function CardArea() {
   const { loading, error, data } = useSubscription(GET_ALL_COLORS);
-  console.log(data);
 
   if (error) {
     return <div>Error. Try Again Later</div>;
+  }
+
+  let color_cards;
+
+  if (data) {
+    color_cards = data.color_palettes.map((c) => <ColorCard props={c} />);
   }
 
   return (
@@ -17,9 +22,7 @@ function CardArea() {
       Color Picker
       <br />
       {loading && <div>Loading ...</div>}
-      <ColorCard />
-      <br />
-      <ColorCard />
+      {color_cards}
       <AddColor />
     </div>
   );

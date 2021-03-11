@@ -1,11 +1,34 @@
+import { useMutation } from "@apollo/client";
+import { hexToRGB, hexGenerator } from "../utils/colorGenerator";
+import { ADD_COLOR } from "../gql/queries";
+
 function AddColor() {
+  const [addColorCard] = useMutation(ADD_COLOR);
+
+  const addColor = () => {
+    console.log("button works");
+    const hex_code = hexGenerator();
+    const rgb_code = hexToRGB(hex_code);
+    const label_name = "Default Value";
+    addColorCard({
+      variables: {
+        hex_code,
+        rgb_code,
+        label_name
+      }
+    });
+  };
+
   return (
-    <div className="relative h-28 w-52">
-      <div className="absolute">
+    <div
+      onClick={addColor}
+      className="cursor-pointer bg-gray-200 h-28 w-52 flex items-center justify-center transition ease-in-out hover:bg-gray-300"
+    >
+      <div className="">
         <svg
-          height="512pt"
+          height="50"
           viewBox="0 0 512 512"
-          width="512pt"
+          width="50"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="m256 512c-141.164062 0-256-114.835938-256-256s114.835938-256 256-256 256 114.835938 256 256-114.835938 256-256 256zm0-480c-123.519531 0-224 100.480469-224 224s100.480469 224 224 224 224-100.480469 224-224-100.480469-224-224-224zm0 0" />

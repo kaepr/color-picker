@@ -49,3 +49,14 @@ export const DELETE_COLOR = `mutation ($id: uuid!) {
   }
 }
 `;
+
+export const GET_ALL_COLORS_QUERY = gql`
+  query MyQuery {
+    color_palettes {
+      hex_code
+      id
+      label_name
+      rgb_code
+    }
+  }
+`;
